@@ -28,3 +28,8 @@ def accept(request):
         profile.save()
 
     return render(request, "cv/accept.html")
+
+
+def resume(request, id):
+    user_profile = Profile.objects.get(pk=id)
+    return render(request, "cv/resume.html", {"user_profile": user_profile})
