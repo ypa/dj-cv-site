@@ -46,3 +46,8 @@ def resume(request, id):
     response["Content-Disposition"] = 'attachment; filename= "%s"' % filename
 
     return response
+
+
+def list(request):
+    profiles = Profile.objects.all()
+    return render(request, "cv/list.html", {"profiles": profiles})
